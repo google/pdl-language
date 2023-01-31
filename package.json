@@ -1,0 +1,47 @@
+{
+    "name": "pdl-language",
+    "displayName": "PDL",
+    "description": "Syntax highlighting for the Packet Description Language.",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.52.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "PDL",
+        "Android"
+    ],
+    "publisher": "Google",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/google/pdl-language.git"
+    },
+    "license": "Apache-2.0",
+    "contributes": {
+        "languages": [
+            {
+                "id": "pdl",
+                "aliases": [
+                    "PDL",
+                    "pdl"
+                ],
+                "extensions": [
+                    ".pdl"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pdl",
+                "scopeName": "source.pdl",
+                "path": "./syntaxes/pdl.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "js-yaml": "^3.14.1"
+    }
+}
