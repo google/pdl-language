@@ -85,7 +85,7 @@ repository:
           '1': {name: storage.type.packet.pdl}
           '2': {name: entity.name.type.packet.pdl}
           '3': {name: punctuation.separator.pdl}
-          '4': {name: entity.name.type.packet.pdl}
+          '4': {name: entity.name.pdl}
           '5': {name: punctuation.section.braces.begin.pdl}
         end: '(\})'
         endCaptures:
@@ -110,7 +110,7 @@ repository:
           '1': {name: storage.type.struct.pdl}
           '2': {name: entity.name.type.struct.pdl}
           '3': {name: punctuation.separator.pdl}
-          '4': {name: entity.name.type.struct.pdl}
+          '4': {name: entity.name.pdl}
           '5': {name: punctuation.section.braces.begin.pdl}
         end: '(\})'
         endCaptures:
