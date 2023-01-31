@@ -92,7 +92,19 @@ repository:
           '1': {name: punctuation.section.braces.end.pdl}
         patterns:
           - include: '#field_list'
-      # TODO: Packets with constraint lists.
+      - name: meta.packet.pdl
+        begin: '(packet)\s+([a-zA-Z][a-zA-Z0-9_]*)\s*(:)\s*([a-zA-Z][a-zA-Z0-9_]*)\s*(\()'
+        beginCaptures:
+          '1': {name: storage.type.packet.pdl}
+          '2': {name: entity.name.type.packet.pdl}
+          '3': {name: punctuation.separator.pdl}
+          '4': {name: entity.name.pdl}
+          '5': {name: punctuation.begin.pdl}
+        end: '(\))'
+        endCaptures:
+          '1': {name: punctuation.section.braces.end.pdl}
+        patterns:
+          - include: '#constraint_list'
       - name: meta.struct.pdl
         begin: '(struct)\s+([a-zA-Z][a-zA-Z0-9_]*)\s*(\{)'
         beginCaptures:
@@ -117,7 +129,27 @@ repository:
           '1': {name: punctuation.section.braces.end.pdl}
         patterns:
           - include: '#field_list'
-      # TODO: Structs with constraint lists.
+      - name: meta.struct.pdl
+        begin: '(struct)\s+([a-zA-Z][a-zA-Z0-9_]*)\s*(:)\s*([a-zA-Z][a-zA-Z0-9_]*)\s*(\()'
+        beginCaptures:
+          '1': {name: storage.type.struct.pdl}
+          '2': {name: entity.name.type.struct.pdl}
+          '3': {name: punctuation.separator.pdl}
+          '4': {name: entity.name.pdl}
+          '5': {name: punctuation.begin.pdl}
+        end: '(\))'
+        endCaptures:
+          '1': {name: punctuation.section.braces.end.pdl}
+        patterns:
+          - include: '#constraint_list'
+      - begin: '(\{)'
+        beginCaptures:
+          '1': {name: punctuation.begin.pdl}
+        end: '(\})'
+        endCaptures:
+          '1': {name: punctuation.section.braces.end.pdl}
+        patterns:
+          - include: '#field_list'
       - name: meta.group.pdl
         begin: '(group)\s+([a-zA-Z][a-zA-Z0-9_]*)\s*(\{)'
         beginCaptures:
