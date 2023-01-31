@@ -315,6 +315,107 @@
               "name": "punctuation.definition.string.end.aidl"
             }
           }
+        },
+        {
+          "name": "meta.custom_field.pdl",
+          "match": "(custom_field)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s*(\")([^\\\"]*)(\")",
+          "captures": {
+            "1": {
+              "name": "storage.type.custom_field.pdl"
+            },
+            "2": {
+              "name": "entity.name.type.custom_field.pdl"
+            },
+            "3": {
+              "name": "punctuation.definition.string.begin.aidl"
+            },
+            "4": {
+              "name": "string.quoted.double.aidl"
+            },
+            "5": {
+              "name": "punctuation.definition.string.end.aidl"
+            }
+          }
+        },
+        {
+          "name": "meta.custom_field.pdl",
+          "match": "(custom_field)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s*(:)\\s*([0-9]+)\\s*(\")([^\\\"]*)(\")",
+          "captures": {
+            "1": {
+              "name": "storage.type.custom_field.pdl"
+            },
+            "2": {
+              "name": "entity.name.type.custom_field.pdl"
+            },
+            "3": {
+              "name": "punctuation.separator.pdl"
+            },
+            "4": {
+              "name": "constant.numeric.decimal.pdl"
+            },
+            "5": {
+              "name": "punctuation.definition.string.begin.aidl"
+            },
+            "6": {
+              "name": "string.quoted.double.aidl"
+            },
+            "7": {
+              "name": "punctuation.definition.string.end.aidl"
+            }
+          }
+        },
+        {
+          "name": "meta.custom_field.pdl",
+          "match": "(custom_field)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s*(:)\\s*(0[xX][0-9a-fA-F]+)\\s*(\")([^\\\"]*)(\")",
+          "captures": {
+            "1": {
+              "name": "storage.type.custom_field.pdl"
+            },
+            "2": {
+              "name": "entity.name.type.custom_field.pdl"
+            },
+            "3": {
+              "name": "punctuation.separator.pdl"
+            },
+            "4": {
+              "name": "constant.numeric.hex.pdl"
+            },
+            "5": {
+              "name": "punctuation.definition.string.begin.aidl"
+            },
+            "6": {
+              "name": "string.quoted.double.aidl"
+            },
+            "7": {
+              "name": "punctuation.definition.string.end.aidl"
+            }
+          }
+        },
+        {
+          "name": "meta.test.pdl",
+          "begin": "(test)\\s+([a-zA-Z][a-zA-Z0-9_]*)\\s*(\\{)",
+          "beginCaptures": {
+            "1": {
+              "name": "storage.type.enum.pdl"
+            },
+            "2": {
+              "name": "entity.name.type.enum.pdl"
+            },
+            "3": {
+              "name": "punctuation.section.braces.begin.pdl"
+            }
+          },
+          "end": "(\\})",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.section.braces.end.pdl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#test_case_list"
+            }
+          ]
         }
       ]
     },
@@ -346,53 +447,27 @@
           "include": "#comments"
         },
         {
-          "match": ":",
+          "match": "[:,]",
           "name": "punctuation.separator.pdl"
         },
         {
-          "match": "(\\[)\\s*(\\+)\\s*([0-9]+)(\\])",
-          "captures": {
+          "begin": "(\\[)",
+          "beginCaptures": {
             "1": {
-              "name": "punctuation.pdl"
-            },
-            "2": {
-              "name": "keyword.operator.arithmetic.pdl"
-            },
-            "3": {
-              "name": "constant.numeric.decimal.pdl"
-            },
-            "4": {
-              "name": "punctuation.pdl"
+              "name": "punctuation.begin.pdl"
             }
-          }
-        },
-        {
-          "match": "(\\[)([0-9]+)(\\])",
-          "captures": {
+          },
+          "end": "(\\])",
+          "endCaptures": {
             "1": {
-              "name": "punctuation.pdl"
-            },
-            "2": {
-              "name": "constant.numeric.decimal.pdl"
-            },
-            "3": {
-              "name": "punctuation.pdl"
+              "name": "punctuation.section.braces.end.pdl"
             }
-          }
-        },
-        {
-          "match": "(\\[)(0[xX][0-9a-fA-F]+)(\\])",
-          "captures": {
-            "1": {
-              "name": "punctuation.pdl"
-            },
-            "2": {
-              "name": "constant.numeric.hex.pdl"
-            },
-            "3": {
-              "name": "punctuation.pdl"
+          },
+          "patterns": [
+            {
+              "include": "#field_size"
             }
-          }
+          ]
         },
         {
           "begin": "(\\{)",
@@ -414,78 +489,122 @@
           ]
         },
         {
-          "match": "(_size_)\\s*(\\()\\s*(_payload_|_body_)\\s*(\\))\\s*(:)",
-          "captures": {
+          "begin": "(\\()",
+          "beginCaptures": {
             "1": {
-              "name": "keyword.pdl"
-            },
-            "2": {
               "name": "punctuation.begin.pdl"
-            },
-            "3": {
-              "name": "keyword.pdl"
-            },
-            "4": {
-              "name": "punctuation.end.pdl"
-            },
-            "5": {
-              "name": "punctuation.separator.pdl"
             }
-          }
-        },
-        {
-          "match": "(_size_|_count_)\\s*(\\()\\s*([a-zA-Z][a-zA-Z0-9_]*)\\s*(\\))\\s*(:)",
-          "captures": {
+          },
+          "end": "(\\))",
+          "endCaptures": {
             "1": {
-              "name": "keyword.pdl"
-            },
-            "2": {
-              "name": "punctuation.begin.pdl"
-            },
-            "3": {
-              "name": "entity.name.pdl"
-            },
-            "4": {
-              "name": "punctuation.end.pdl"
-            },
-            "5": {
-              "name": "punctuation.separator.pdl"
-            }
-          }
-        },
-        {
-          "match": "(_payload_)\\s*(:)\\s*(\\[)\\s*(\\+)\\s*([0-9]+)([\\]])",
-          "captures": {
-            "1": {
-              "name": "keyword.pdl"
-            },
-            "2": {
-              "name": "punctuation.separator.pdl"
-            },
-            "3": {
-              "name": "punctuation.begin.pdl"
-            },
-            "4": {
-              "name": "keyword.operator.arithmetic.pdl"
-            },
-            "5": {
-              "name": "constant.numeric.decimal.pdl"
-            },
-            "6": {
               "name": "punctuation.end.pdl"
             }
-          }
+          },
+          "patterns": [
+            {
+              "include": "#field_parentheses"
+            }
+          ]
         },
         {
-          "match": "_body_",
+          "match": "(_body_|_size_|_count_|_payload_|_fixed_|_checksum_start_|_padding_|_reserved_)",
           "name": "keyword.pdl"
         },
         {
-          "match": "[a-zA-Z][a-zA-Z0-9_]*",
-          "name": "entity.name.pdl"
+          "include": "#identifier"
         },
         {
           "include": "#integer"
+        },
+        {
+          "match": "([^\\s])",
+          "name": "invalid.illegal.pdl"
+        }
+      ]
+    },
+    "field_parentheses": {
+      "patterns": [
+        {
+          "match": ":",
+          "name": "punctuation.separator.pdl"
+        },
+        {
+          "match": "(_payload_|_body_)",
+          "name": "keyword.pdl"
+        },
+        {
+          "include": "#identifier"
+        },
+        {
+          "include": "#integer"
+        },
+        {
+          "match": "([^\\s])",
+          "name": "invalid.illegal.pdl"
+        }
+      ]
+    },
+    "field_size": {
+      "patterns": [
+        {
+          "match": "(\\+)\\s*([0-9]+)",
+          "captures": {
+            "1": {
+              "name": "keyword.operator.arithmetic.pdl"
+            },
+            "2": {
+              "name": "constant.numeric.decimal.pdl"
+            }
+          }
+        },
+        {
+          "include": "#integer"
+        },
+        {
+          "match": "([^\\s])",
+          "name": "invalid.illegal.pdl"
+        }
+      ]
+    },
+    "constraint_list": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.separator.pdl"
+        },
+        {
+          "match": "=",
+          "name": "punctuation.pdl"
+        },
+        {
+          "include": "#integer"
+        },
+        {
+          "include": "#identifier"
+        }
+      ]
+    },
+    "test_case_list": {
+      "patterns": [
+        {
+          "match": ",",
+          "name": "punctuation.separator.pdl"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "match": "([^\\s])",
+          "name": "invalid.illegal.pdl"
+        }
+      ]
+    },
+    "identifier": {
+      "patterns": [
+        {
+          "match": "[a-zA-Z][a-zA-Z0-9_]*",
+          "name": "entity.name.pdl"
         }
       ]
     },
@@ -498,6 +617,24 @@
         {
           "match": "[0-9]+",
           "name": "constant.numeric.decimal.pdl"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "match": "(\")([^\\\"]*)(\")",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.string.begin.aidl"
+            },
+            "2": {
+              "name": "string.quoted.double.aidl"
+            },
+            "3": {
+              "name": "punctuation.definition.string.end.aidl"
+            }
+          }
         }
       ]
     },
