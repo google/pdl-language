@@ -16,7 +16,7 @@ $schema: 'https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlangu
 fileTypes:
   - pdl
 scopeName: source.pdl
-name: PDL
+name: Packet Description Language
 foldingStartMarker: '\{\s*$'
 foldingStopMarker: '^\s*\}'
 patterns:

@@ -4,7 +4,7 @@
     "pdl"
   ],
   "scopeName": "source.pdl",
-  "name": "PDL",
+  "name": "Packet Description Language",
   "foldingStartMarker": "\\{\\s*$",
   "foldingStopMarker": "^\\s*\\}",
   "patterns": [

@@ -1,8 +1,8 @@
 {
     "name": "pdl-language",
-    "displayName": "PDL",
+    "displayName": "Packet Description Language",
     "description": "Syntax highlighting for the Packet Description Language.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "engines": {
         "vscode": "^1.52.0"
     },
@@ -22,8 +22,9 @@
     "contributes": {
         "languages": [
             {
-                "id": "pdl",
+                "id": "pdl_android",
                 "aliases": [
+                    "Packet Description Language",
                     "PDL",
                     "pdl"
                 ],
@@ -35,7 +36,7 @@
         ],
         "grammars": [
             {
-                "language": "pdl",
+                "language": "pdl_android",
                 "scopeName": "source.pdl",
                 "path": "./syntaxes/pdl.tmLanguage.json"
             }
