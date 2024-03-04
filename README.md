@@ -1,7 +1,7 @@
 # PDL language support
 
 Syntax highlighting for
-[Packet Description Language](https://android.googlesource.com/platform/packages/modules/Bluetooth/+/master/tools/pdl/doc/reference.md),
+[Packet Description Language](https://github.com/google/pdl/blob/main/doc/reference.md),
 as used for various Android networking components.
 
 This is not an officially supported Google product.
