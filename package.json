@@ -2,7 +2,7 @@
     "name": "pdl-language",
     "displayName": "Packet Description Language",
     "description": "Syntax highlighting for the Packet Description Language.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "engines": {
         "vscode": "^1.52.0"
     },
