@@ -8,6 +8,10 @@ This is not an officially supported Google product.
 
 ## Release Notes
 
+### 0.2.2
+
+Fixed highlighting of enums with ranges (i.e. nested braces).
+
 ### 0.2.1
 
 Fixed link to PDL reference documentation.
